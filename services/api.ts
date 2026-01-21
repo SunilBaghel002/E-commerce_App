@@ -71,7 +71,7 @@ api.interceptors.response.use(
     }
     
     // Format error message
-    const errorMessage = getErrorMessage(error);
+    const errorMessage = getErrorMessage(error as AxiosError<{ message?: string }>);
     return Promise.reject(new Error(errorMessage));
   }
 );
