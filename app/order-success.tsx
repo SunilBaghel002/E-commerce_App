@@ -1,58 +1,33 @@
-// Order Success Screen
+// Order Success Screen - Simplified without Reanimated
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withSpring,
-    withSequence,
-    withDelay,
-} from 'react-native-reanimated';
 import { useTheme } from '../context/ThemeContext';
 import { useAppDispatch } from '../store';
 import { clearCart } from '../store/slices/cartSlice';
 import { CustomButton } from '../components/ui';
 import { Fonts, Spacing, BorderRadius } from '../constants/fonts';
 
-const OrderSuccessScreen = () => {
+export default function OrderSuccessScreen() {
     const { colors } = useTheme();
     const router = useRouter();
     const { orderId } = useLocalSearchParams<{ orderId: string }>();
     const dispatch = useAppDispatch();
 
-    const scale = useSharedValue(0);
-    const opacity = useSharedValue(0);
-
     useEffect(() => {
         // Clear cart on order success
         dispatch(clearCart());
-
-        // Animate success icon
-        scale.value = withSequence(
-            withSpring(1.2, { damping: 10 }),
-            withSpring(1, { damping: 15 })
-        );
-        opacity.value = withDelay(200, withSpring(1));
     }, []);
-
-    const iconStyle = useAnimatedStyle(() => ({
-        transform: [{ scale: scale.value }],
-    }));
-
-    const contentStyle = useAnimatedStyle(() => ({
-        opacity: opacity.value,
-    }));
 
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
             <View style={styles.content}>
-                <Animated.View style={[styles.iconContainer, { backgroundColor: colors.successLight }, iconStyle]}>
+                <View style={[styles.iconContainer, { backgroundColor: colors.successLight }]}>
                     <Ionicons name="checkmark" size={64} color={colors.success} />
-                </Animated.View>
+                </View>
 
-                <Animated.View style={[styles.textContainer, contentStyle]}>
+                <View style={styles.textContainer}>
                     <Text style={[styles.title, { color: colors.text }]}>
                         Order Placed Successfully!
                     </Text>
@@ -72,7 +47,7 @@ const OrderSuccessScreen = () => {
                     <Text style={[styles.emailNote, { color: colors.textSecondary }]}>
                         A confirmation email has been sent to your registered email address.
                     </Text>
-                </Animated.View>
+                </View>
             </View>
 
             <View style={styles.footer}>
@@ -93,7 +68,7 @@ const OrderSuccessScreen = () => {
             </View>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -152,5 +127,3 @@ const styles = StyleSheet.create({
         paddingBottom: Spacing['2xl'],
     },
 });
-
-export default OrderSuccessScreen;

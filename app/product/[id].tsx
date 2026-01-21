@@ -1,4 +1,4 @@
-// Product Detail Screen
+// Product Detail Screen - Simplified without Reanimated
 import React, { useEffect, useState } from 'react';
 import {
     View,
@@ -12,7 +12,6 @@ import {
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
-import Animated, { FadeInDown } from 'react-native-reanimated';
 import { useTheme } from '../../context/ThemeContext';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { addToCart } from '../../store/slices/cartSlice';
@@ -25,7 +24,7 @@ import { Fonts, Spacing, BorderRadius, Shadows } from '../../constants/fonts';
 
 const { width } = Dimensions.get('window');
 
-const ProductDetailScreen = () => {
+export default function ProductDetailScreen() {
     const { id } = useLocalSearchParams<{ id: string }>();
     const { colors } = useTheme();
     const router = useRouter();
@@ -155,10 +154,7 @@ const ProductDetailScreen = () => {
                 />
 
                 {/* Product Info */}
-                <Animated.View
-                    entering={FadeInDown.delay(100).duration(400)}
-                    style={[styles.infoContainer, { backgroundColor: colors.background }]}
-                >
+                <View style={[styles.infoContainer, { backgroundColor: colors.background }]}>
                     {/* Brand & Title */}
                     {product.brand && (
                         <Text style={[styles.brand, { color: colors.primary }]}>
@@ -271,7 +267,7 @@ const ProductDetailScreen = () => {
                     </View>
 
                     <View style={{ height: 120 }} />
-                </Animated.View>
+                </View>
             </ScrollView>
 
             {/* Bottom Action Bar */}
@@ -294,7 +290,7 @@ const ProductDetailScreen = () => {
             </View>
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -417,5 +413,3 @@ const styles = StyleSheet.create({
         borderTopRightRadius: BorderRadius['2xl'],
     },
 });
-
-export default ProductDetailScreen;

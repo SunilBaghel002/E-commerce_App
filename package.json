@@ -1,7 +1,7 @@
 {
   "name": "e-commerce_app",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -24,8 +24,6 @@
     "expo-status-bar": "~3.0.9",
     "react": "19.1.0",
     "react-native": "0.81.5",
-    "react-native-gesture-handler": "^2.30.0",
-    "react-native-reanimated": "^4.2.1",
     "react-native-safe-area-context": "^5.6.2",
     "react-native-screens": "^4.20.0",
     "react-redux": "^9.2.0"
