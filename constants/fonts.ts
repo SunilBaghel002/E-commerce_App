@@ -79,4 +79,31 @@ export const Shadows = {
     shadowRadius: 16,
     elevation: 8,
   },
+  glow: (color: string) => ({
+    shadowColor: color,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 8,
+  }),
 };
+
+// Animation presets for consistent, premium-feeling animations
+export const Animations = {
+  spring: {
+    gentle: { damping: 15, stiffness: 150 },
+    bouncy: { damping: 10, stiffness: 180 },
+    snappy: { damping: 20, stiffness: 300 },
+  },
+  duration: {
+    fast: 150,
+    normal: 250,
+    slow: 400,
+    verySlow: 600,
+  },
+  scale: {
+    pressed: 0.96,
+    hover: 1.02,
+  },
+};
+

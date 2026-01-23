@@ -39,6 +39,24 @@ export const Colors = {
     rating: '#FBBF24',
     discount: '#EF4444',
     badge: '#6366F1',
+
+    // Premium Gradients
+    gradientPrimary: ['#6366F1', '#8B5CF6'],
+    gradientSecondary: ['#EC4899', '#F472B6'],
+    gradientGold: ['#F59E0B', '#FBBF24'],
+    gradientSuccess: ['#22C55E', '#4ADE80'],
+    gradientSunset: ['#F97316', '#FB923C'],
+    gradientOcean: ['#0EA5E9', '#38BDF8'],
+    gradientRose: ['#F43F5E', '#FB7185'],
+    
+    // Glassmorphism
+    glass: 'rgba(255, 255, 255, 0.7)',
+    glassBorder: 'rgba(255, 255, 255, 0.3)',
+    glassLight: 'rgba(255, 255, 255, 0.9)',
+    
+    // Card highlights
+    cardHighlight: '#FAFBFF',
+    shimmer: ['#F1F5F9', '#FFFFFF', '#F1F5F9'],
   },
   dark: {
     primary: '#818CF8',
@@ -77,8 +95,27 @@ export const Colors = {
     rating: '#FBBF24',
     discount: '#F87171',
     badge: '#818CF8',
+
+    // Premium Gradients
+    gradientPrimary: ['#818CF8', '#A78BFA'],
+    gradientSecondary: ['#F472B6', '#FB7185'],
+    gradientGold: ['#FBBF24', '#FCD34D'],
+    gradientSuccess: ['#4ADE80', '#86EFAC'],
+    gradientSunset: ['#FB923C', '#FDBA74'],
+    gradientOcean: ['#38BDF8', '#7DD3FC'],
+    gradientRose: ['#FB7185', '#FDA4AF'],
+    
+    // Glassmorphism
+    glass: 'rgba(30, 41, 59, 0.8)',
+    glassBorder: 'rgba(255, 255, 255, 0.1)',
+    glassLight: 'rgba(30, 41, 59, 0.95)',
+    
+    // Card highlights
+    cardHighlight: '#253449',
+    shimmer: ['#1E293B', '#334155', '#1E293B'],
   },
 };
 
 export type ColorScheme = typeof Colors.light;
 export type ThemeType = 'light' | 'dark';
+
