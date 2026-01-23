@@ -2,7 +2,10 @@
 
 export const Config = {
   // API Configuration
-  API_BASE_URL: 'https://api.example.com/v1',
+  // For Android Emulator use: 'http://10.0.2.2:3001/api'
+  // For iOS Simulator use: 'http://localhost:3001/api'
+  // For Real Device use your computer's IP: 'http://YOUR_IP:3001/api'
+  API_BASE_URL: 'http://localhost:3001/api',
   API_TIMEOUT: 30000,
   
   // Pagination

@@ -14,7 +14,9 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8081'],
+  origin: process.env.NODE_ENV === 'development' 
+    ? true  // Allow all origins in development for mobile app testing
+    : ['http://localhost:3000', 'http://localhost:5173', 'http://localhost:8081'],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
